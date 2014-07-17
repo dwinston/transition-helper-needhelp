@@ -19,8 +19,10 @@ var hooks = {
       hooks.insertElement(node, next);
     },
     removeElement: function(node) {
+      console.log('start removal process');
       $(node).addClass(OFFSCREEN_CLASS)
-        .on(EVENTS, function() {
+        .one(EVENTS, function() {
+          console.log('actually remove');
           $(node).remove()
         });
     }
